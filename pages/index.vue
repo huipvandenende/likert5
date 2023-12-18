@@ -13,6 +13,7 @@
 <script setup lang="ts">
 import {ref} from 'vue';
 
+// These shouldn't be hardcoded in a real-world application.
 const questions = ref([
   'How much do you like this template?',
   'How user-friendly do you find the interface?',

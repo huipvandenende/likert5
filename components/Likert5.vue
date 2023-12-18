@@ -1,5 +1,5 @@
 <template>
-  <v-card class="text-center">
+  <v-card class="text-center mt-4">
     <div>{{ question }}</div>
     <v-rating
       v-model="rating"
@@ -9,7 +9,7 @@
       large
     ></v-rating>
     <span class="font-weight-bold">
-        {{ rating }}
+        {{ displayRating }}
       </span>
   </v-card>
 </template>
@@ -23,8 +23,16 @@ export default Vue.extend({
   },
   data() {
     return {
-      rating: 0,
+      rating: null as number | null,
     };
+  },
+  computed: {
+    displayRating(): string {
+      if (this.rating === null || this.rating === 0) {
+        return 'Not applicable';
+      }
+      return this.rating.toString();
+    }
   },
 });
 </script>
